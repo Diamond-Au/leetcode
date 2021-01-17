@@ -1,3 +1,6 @@
+/*
+  快速排序模板
+ */
 #include <iostream>
 
 using namespace std;
