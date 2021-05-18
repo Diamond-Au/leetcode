@@ -1,4 +1,4 @@
-```cpp
+
 #include <iostream>
 using namespace std;
 
@@ -53,4 +53,4 @@ int sum()
 
 	return 0;
 }
-```
+

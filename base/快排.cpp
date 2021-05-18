@@ -1,6 +1,3 @@
-### 快排模板
-
-```cpp
 /*
   快速排序模板
  */
@@ -11,7 +8,7 @@ const int N = 1e6 + 10;
 int n;
 int q[N];
 
-void quick_sork(int l, int r)
+void quick_sort(int l, int r)
 {
   if (l >= r)
     return;
@@ -31,8 +28,8 @@ void quick_sork(int l, int r)
       swap(q[i], q[j]);
     }
   }
-  quick_sork(l, j);
-  quick_sork(j + 1, r);
+  quick_sort(l, j);
+  quick_sort(j + 1, r);
 }
 
 int main()
@@ -43,7 +40,7 @@ int main()
     scanf("%d", &q[i]);
   }
 
-  quick_sork(0, n - 1);
+  quick_sort(0, n - 1);
 
   for (int i = 0; i < n; i++)
   {
@@ -52,4 +49,3 @@ int main()
 
   return 0;
 }
-```

@@ -1,4 +1,4 @@
-```cpp
+
 /*
   二分法：本质是在分割点隔开的时候，左边有左边的性质 右边有右边的性质 和单调性没有必然的联系
  */
@@ -6,7 +6,7 @@
 // 整数二分模板
 
 #include <iostream>
-    using namespace std;
+using namespace std;
 
 const int N = 1e6 + 10;
 
@@ -55,5 +55,3 @@ int main(int argc, char const *argv[])
 
   return 0;
 }
-
-```

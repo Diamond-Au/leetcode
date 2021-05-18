@@ -1,4 +1,3 @@
-```cpp
 /*
   归并排序模板
  */
@@ -46,5 +45,4 @@ int main()
   for (int i = 0; i < n; i++)
     printf("%d ", q[i]);
   return 0;
-}逆序对
-```
+}

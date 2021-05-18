@@ -1,4 +1,4 @@
-```cpp
+
 /*
 给定一个长度为n的整数数列，请你计算数列中的逆序对的数量。
 
@@ -71,4 +71,3 @@ int main(int argc, char const *argv[])
   return 0;
 }
 
-```

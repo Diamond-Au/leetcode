@@ -1,5 +1,4 @@
-```cpp
-// 求一个数的二次方根
+
 
 #include <iostream>
 using namespace std;
@@ -24,5 +23,3 @@ int main(int argc, char const *argv[])
   printf("%lf\n", l);
   return 0;
 }
-
-```
