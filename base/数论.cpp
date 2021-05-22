@@ -113,6 +113,98 @@ vector<int> get_divisors(int n)
 
 // 欧几里得算法 最大公约数
 
+/*
+  Q(n) 1~n中与n互质到个数
+  互质是公约数只有1的两个整数，叫做互质整数。
+  公约数只有1的两个自然数，叫做互质自然数
+
+  欧拉公式
+  N = p1^a + p2^b + p3^3 + p4^4
+  pn 都是质数
+  Q(n) = N(1 - 1 / p1)(1 - 1 / p2) .....
+ */
+// 欧拉函数 求前1 ~ n中与 n 互质数的个数 公式法
+int getQn1(int n)
+{
+  int res = n;
+  for (int i = 2; i < n / i; i++)
+  {
+    if (n % i == 0)
+    {
+      res = res / i * (i - 1);
+      while (n % i == 0)
+      {
+        n /= i;
+      }
+    }
+  }
+  if (n > 1)
+    res = res / n * (n - 1);
+
+  return res;
+}
+
+// *线性* 筛法求欧拉函数
+/*
+  1 ~ n 中的每个数的欧拉函数
+ */
+const int N = 100010;
+int primes[N], cnt = 0;
+int phi[N];
+bool st[N];
+long long get_eusers(int n)
+{
+  for (int i = 2; i <= n; i++)
+  {
+    if (!st[i])
+    {
+      primes[cnt++] = i;
+      phi[i] = i - 1;
+    }
+    for (int j = 0; primes[j] <= n / j; j++)
+    {
+      st[primes[j] * i] = true;
+      if (i % primes[j] == 0)
+      {
+        phi[primes[j] * i] = primes[j] * phi[i];
+        break;
+      }
+      phi[primes[j] * i] = phi[i] * (primes[j] - 1);
+    }
+  }
+  long long res = 0;
+  for (int i = 1; i <= n; i++)
+  {
+    res += phi[i];
+  }
+  return res;
+}
+
+/*
+  定理
+  a,n互质 a^q(n) % n = 1
+ */
+
+// 快速幂 欧拉降幂
+// 快速求出来 a^k mod p 的结果 O(log K);
+// 核心就是将k编程二进制的形式然后进行计算
+int qmi(int a, int k, int p)
+{
+  int res = 1;
+
+  while (k)
+  {
+
+    if (k & 1)
+    {
+      res = (long long)res * a % p;
+      k >>= 1;
+      a = (long long)a * a % p;
+    }
+  }
+  return res;
+}
+
 int gcd(int a, int b)
 {
   return b ? gcd(b, a % b) : a;
